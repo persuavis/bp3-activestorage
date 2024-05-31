@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Wim den Braven']
   spec.email = ['wimdenbraven@persuavis.com']
 
-  spec.summary = 'bp3-activestorage.'
+  spec.summary = 'bp3-activestorage adapts activestorage for BP3 (persuavis/black_phoebe_3).'
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = 'https://www.black-phoebe.com'
   spec.license = 'MIT'
