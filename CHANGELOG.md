@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [0.1.2] - 2024-11-08
+
+- Make classes Ransackable
+- Add .table_name_basis
+
 ## [0.1.1] - 2024-05-31
 
 - Tweaks and documentation
