@@ -2,6 +2,7 @@
 
 # require 'rails/railtie'
 
+# rubocop:disable Metrics/BlockLength
 module Bp3
   module Activestorage
     if defined?(Rails.env)
@@ -28,6 +29,10 @@ module Bp3
                 alias site sites_site
                 alias site= sites_site=
                 belongs_to :tenant, optional: true
+
+                def self.table_name_basis
+                  table_name.gsub(/\Apublic\./, '').singularize
+                end
               end
 
               class Blob
@@ -42,6 +47,10 @@ module Bp3
                 alias site sites_site
                 alias site= sites_site=
                 belongs_to :tenant, optional: true
+
+                def self.table_name_basis
+                  table_name.gsub(/\Apublic\./, '').singularize
+                end
 
                 private
 
@@ -61,6 +70,10 @@ module Bp3
                 alias site sites_site
                 alias site= sites_site=
                 belongs_to :tenant, optional: true
+
+                def self.table_name_basis
+                  table_name.gsub(/\Apublic\./, '').singularize
+                end
               end
 
               class BaseController
@@ -92,3 +105,4 @@ module Bp3
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
