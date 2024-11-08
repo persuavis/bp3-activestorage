@@ -39,6 +39,7 @@ module Bp3
                 include Bp3::Core::Rqid
                 include Bp3::Core::Sqnr
                 include Bp3::Core::Displayable
+                include Bp3::Core::Ransackable
 
                 use_sqnr_for_ordering
                 has_paper_trail
@@ -62,6 +63,7 @@ module Bp3
               class VariantRecord
                 include Bp3::Core::Rqid
                 include Bp3::Core::Sqnr
+                include Bp3::Core::Ransackable
 
                 use_sqnr_for_ordering
                 has_paper_trail
