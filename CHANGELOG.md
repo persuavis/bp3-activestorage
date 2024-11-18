@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.1.4] - 2024-11-18
+
+- Use ruby 3.3.5 and relax gem constraints
+
 ## [0.1.3] - 2024-11-08
 
 - Update activestorage dependency to support Rails 7.2
