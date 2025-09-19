@@ -79,8 +79,10 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     marcel (1.0.4)
+    mini_portile2 (2.8.9)
     minitest (5.25.1)
-    nokogiri (1.16.7-x86_64-darwin)
+    nokogiri (1.16.7)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     paper_trail (16.0.0)
       activerecord (>= 6.1)
@@ -148,6 +150,7 @@ GEM
 PLATFORMS
   x86_64-darwin-22
   x86_64-darwin-23
+  x86_64-darwin-24
 
 DEPENDENCIES
   bp3-activestorage!
@@ -159,4 +162,4 @@ DEPENDENCIES
   rubocop-rspec (>= 2.25)
 
 BUNDLED WITH
-   2.5.23
+   2.7.2
