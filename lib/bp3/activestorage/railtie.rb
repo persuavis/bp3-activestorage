@@ -2,7 +2,7 @@
 
 # require 'rails/railtie'
 
-# rubocop:disable Metrics/BlockLength
+# rubocop:disable-next Metrics/BlockLength
 module Bp3
   module Activestorage
     if defined?(Rails.env)
@@ -107,4 +107,3 @@ module Bp3
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
