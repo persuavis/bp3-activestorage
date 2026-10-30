@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-30
+
 ### Security
 
 - Refuse `ActiveStorage::Blob#key` to explore, as it locates the file in storage
