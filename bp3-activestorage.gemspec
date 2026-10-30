@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activestorage', '~> 8.1'
-  spec.add_dependency 'bp3-core', '>= 0.1.0'
+  spec.add_dependency 'bp3-core', '>= 0.4.0'
   spec.add_dependency 'paper_trail', '>= 15.1'
 
   spec.add_development_dependency 'byebug'
