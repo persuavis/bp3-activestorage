@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+### Security
+
+- Refuse `ActiveStorage::Blob#key` to explore, as it locates the file in storage
+- Require bp3-core 0.4.0, for `unexplorable_columns`
+
 ## [0.1.5] - 2026-01-12
 
 - Update gems

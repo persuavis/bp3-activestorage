@@ -41,6 +41,9 @@ module Bp3
                 include Bp3::Core::Displayable
                 include Bp3::Core::Ransackable
 
+                # The key locates the file in storage, so it is not to be guessed at one character at a time
+                self.unexplorable_columns = %w[key]
+
                 use_sqnr_for_ordering
                 has_paper_trail
 
