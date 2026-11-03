@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-03
+
 ### Security
 
 - Require a signed-in user, site admin or root for direct uploads
