@@ -20,8 +20,10 @@ shell is not already on it; a missing `rspec` means the wrong Ruby, not a missin
 
 ## Architecture
 
-`lib/bp3/activestorage/railtie.rb` reopens five classes in an `after_initialize` block. The Railtie is
-only defined when `Rails.env` is.
+`lib/bp3/activestorage/railtie.rb` reopens six classes in a `to_prepare` block. Active Storage's models and
+controllers are reloaded with the application's code in development, and `to_prepare` runs again after
+each reload, where `after_initialize` would not. Each class is referenced before it is reopened, so that
+it is autoloaded rather than defined anew. The Railtie is only defined when `Rails.env` is.
 
 **Models**: `ActiveStorage::Attachment`, `Blob` and `VariantRecord`
 - include `Bp3::Core::Rqid`, `Sqnr` and `Ransackable` (Blob also `Displayable`), call
@@ -34,8 +36,11 @@ only defined when `Rails.env` is.
 
 **Controllers**: `ActiveStorage::BaseController` and `ActiveStorage::Representations::ProxyController`
 include `Bp3::Core::Actions`, `Settings`, `FeatureFlags` and `Cookies`, so file requests get the same site,
-tenant and request tracking as the rest of the application. They do not authenticate;
-`authenticate_root!` breaks the proxy controller.
+tenant and request tracking as the rest of the application. They do not authenticate: the signed URL is
+the permission, and public pages and emails show files to people with no session.
+`ActiveStorage::DirectUploadsController` does: it answers 401 unless `grsc.current_login` names someone. It
+inherits `set_global_request_state` from `Bp3::Core::Actions` through `BaseController`, and its own check
+runs after it, so it asks the request state rather than Devise.
 
 ## Testing
 

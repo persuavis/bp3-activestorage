@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Fixed
+
+- Reopen the Active Storage classes in `to_prepare`, so a development reload keeps what this gem adds
+
 ## [0.2.0] - 2026-10-30
 
 ### Security
