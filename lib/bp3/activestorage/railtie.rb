@@ -15,6 +15,7 @@ module Bp3
           ::ActiveStorage::VariantRecord # preload
           ::ActiveStorage::BaseController # preload
           ::ActiveStorage::Representations::ProxyController # preload
+          ::ActiveStorage::DirectUploadsController # preload
           module ::ActiveStorage
             # CAUTION: do not include Tenantable, it breaks things (it may set site/tenant behind the scenes,
             #   and sets the default scope, and then later the blob can't be found
@@ -90,6 +91,20 @@ module Bp3
 
               # No login is asked of anyone fetching a file. The URL is signed, and holding it is the
               # permission: a visitor reading a page and an email client showing a logo have no session.
+            end
+
+            # A direct upload creates a blob and hands back a signed URL to store a file at, and Rails asks
+            # nothing of the caller. It is for signed-in work, such as a rich text editor, so it asks for a
+            # login. BaseController's Bp3::Core::Actions#set_global_request_state runs before this, so the
+            # request state knows who is signed in.
+            class DirectUploadsController
+              before_action :require_login_for_direct_upload
+
+              private
+
+              def require_login_for_direct_upload
+                head :unauthorized unless grsc.current_login
+              end
             end
 
             module Representations

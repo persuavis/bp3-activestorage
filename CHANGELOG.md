@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Security
+
+- Require a signed-in user, site admin or root for direct uploads
+
 ### Fixed
 
 - Reopen the Active Storage classes in `to_prepare`, so a development reload keeps what this gem adds
